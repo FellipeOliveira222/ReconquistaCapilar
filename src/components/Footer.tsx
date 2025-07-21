@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Shield, Lock, Award, CheckCircle2 } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -101,6 +102,22 @@ const Footer: React.FC = () => {
               <p>© 2024 Reconquista Capilar. Todos os direitos reservados.</p>
               <p>Este produto não substitui orientação médica profissional.</p>
               <p>Resultados podem variar de pessoa para pessoa.</p>
+              
+              {/* Legal Links */}
+              <div className="flex justify-center gap-6 mt-4 pt-4 border-t border-gray-700">
+                <Link 
+                  to="/privacy-policy"
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                >
+                  Política de Privacidade
+                </Link>
+                <Link 
+                  to="/terms-of-use"
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                >
+                  Termos de Uso
+                </Link>
+              </div>
             </motion.div>
 
             {/* Final CTA */}

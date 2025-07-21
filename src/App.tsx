@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import SocialProof from './components/SocialProof';
@@ -9,10 +10,12 @@ import Testimonials from './components/Testimonials';
 import GuaranteeSection from './components/GuaranteeSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfUse from './components/TermsOfUse';
 
-function App() {
+const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <Header />
       <HeroSection />
       <SocialProof />
@@ -23,6 +26,18 @@ function App() {
       <GuaranteeSection />
       <Footer />
       <WhatsAppButton />
+    </>
+  );
+};
+
+function App() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+      </Routes>
     </div>
   );
 }
