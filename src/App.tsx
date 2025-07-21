@@ -8,6 +8,7 @@ import IdentificationFilter from './components/IdentificationFilter';
 import Testimonials from './components/Testimonials';
 import GuaranteeSection from './components/GuaranteeSection';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Testimonials />
       <GuaranteeSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
