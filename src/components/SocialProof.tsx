@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Users, Star } from 'lucide-react';
 
 const SocialProof: React.FC = () => {
@@ -26,17 +27,41 @@ const SocialProof: React.FC = () => {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left">
+        <motion.div 
+          className="mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Mais de 15.000 homens já transformaram suas vidas
-          </h2>
-          <p className="text-xl text-gray-600 text-left">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-600 text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Resultados reais, comprovados cientificamente.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Image Carousel */}
-        <div className="relative mb-12">
+        <motion.div 
+          className="relative mb-12"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           <div className="flex items-center justify-center">
             <button 
               onClick={prevSlide}
@@ -72,23 +97,36 @@ const SocialProof: React.FC = () => {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Stats */}
-        <div className="flex justify-center gap-12">
+        <motion.div 
+          className="flex justify-center gap-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="flex items-center gap-3">
+              <motion.div 
+                key={index} 
+                className="flex items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+              >
                 <Icon className="w-8 h-8 text-[#3f5c4f]" />
                 <div>
                   <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
                   <div className="text-gray-600">{stat.label}</div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
@@ -23,18 +24,50 @@ const Testimonials: React.FC = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left">
-            Avaliações reais
-          </h2>
-          <p className="text-xl text-gray-600 text-left">
+        <motion.div 
+          className="mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Avaliação
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-600 text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Depoimentos de quem já testou o protocolo
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <motion.div 
+              key={index} 
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
               <div className="flex items-center mb-4">
                 <img 
                   src={testimonial.avatar}
@@ -47,9 +80,9 @@ const Testimonials: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-600 italic">"{testimonial.text}"</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
