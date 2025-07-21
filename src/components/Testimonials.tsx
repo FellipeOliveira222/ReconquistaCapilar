@@ -147,14 +147,3 @@ const Testimonials: React.FC = () => {
 };
 
 export default Testimonials;
-              </div>
-              <p className="text-gray-600 italic">"{testimonial.text}"</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-export default Testimonials;
